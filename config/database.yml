@@ -1,0 +1,56 @@
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+
+development:
+  <<: *default
+  database: db/development.sqlite3
+
+#  adapter: postgresql
+#  encoding: utf8
+#  database: sgpro_v2_local
+#  host: 172.16.3.253
+#  port: 5433
+#  username: postgres
+#  password: 1234QWER
+ 
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+  host: 172.16.1.21
+  database: sgpro_v2
+  username: postgres
+  password: db@2014cepedi
+
+
+test:
+#  <<: *default
+#  database: db/test.sqlite3
+  adapter: postgresql
+  encoding: utf8
+  database: sgpro_v2_test
+  host: 172.16.3.253
+  port: 5433
+  username: postgres
+  password: 1234QWER
+
+
+staging:
+  <<: *default
+  database: db/staging.sqlite3
+
+
+demo:
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+  host: 172.16.1.21
+  database: sgpro_v2
+  username: postgres
+  password: db@2014cepedi

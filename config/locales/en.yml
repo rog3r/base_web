@@ -1,0 +1,137 @@
+en:
+  datepicker:
+    dformat: '%d/%m/%Y'             # display format of the date (this is the default, can be ommited)
+    pformat: 'DD/MM/YYYY'           # picking format of the date (this is the default, can be ommited)
+  timepicker:
+    dformat: '%R'                   # display format of the time (this is the default, can be ommited)
+    pformat: 'HH:mm'                # picking format of the time (this is the default, can be ommited)
+  dayViewHeaderFormat: 'MMMM YYYY'  # picking format of the time (this is the default, can be ommited)
+  current_locale: Language
+  logout: Logout
+  confirm_logout: Confirm logout?
+  processing: Processing...
+  website_search: Search
+  undo:  Undo
+  redo:  Redo
+  undid: Undid
+  user_cannot_sign_in_if_not_registered: user cannot sign in if not registered
+  export_selected: Export selected
+  history: History
+  field: Campo
+  value: Valor
+  yes_label: 'Yes'
+  no_label: 'No'
+  ok: Ok
+  of: Of
+  for: For
+  cancel: Cancel
+  search: Search
+  advanced_search: Advanced Search
+  search_panel: Search Panel
+  browser: Browser
+  no_file_selected: No file selected.
+  all: All
+  back: Back
+  edit: Edit
+  show: Show
+  new: New
+  save_and_new: Save and New
+  delete: Delete
+  confirm_delete: Are you sure to delete?
+  import_file: Import File
+  choose_file: Choose File
+  send_file: Send File
+  close: Close
+  version_id: Version ID
+  date_history: Date
+  target: Target
+  changeset: Changeset
+  more_info: More Info
+  attachment: Attachments
+  rh_direto: RH direto
+  rh_indireto: RH indireto
+  title: Project Plan
+  negado_acesso: Access Denied
+  financeiro_rhs:
+      index:
+        subtitle: Financeiros do RH
+      show:
+        subtitle: Financeiro do RH
+      new:
+        subtitle: New Financeiro do RH
+      edit:
+        subtitle: Edit Financeido do RH
+  activerecord:
+    models:
+      user: User
+      centro_de_controle: Control Center
+      empresa: Company
+      convenio: Convênio
+      plano_de_trabalho: Plano de Trabalho
+      rh: RH
+      fornecedor: Supplier
+    attributes:
+      user:
+        name: Name
+        email: E-mail
+        password: Password
+        password_confirmation: Password Confirmation
+        current_password: Current Password
+        remember_me: Remember
+        current_sign_in_at: Current sign in at
+        locked: Locked
+      financeiro_rh:
+        data: Competence Month
+        custo_hora: 'Cost/Hour'
+        hora_mes: 'Hour/Month'
+        valor: Amount
+        status: Status
+        funcao: Function
+        arquivo_file_name: File
+      rda:
+        capacitacao_tecnologica: Capacitação Tecnológica
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: is empty
+              too_short: is too short
+            email:
+              blank: is empty
+              invalid: is invalid
+              taken: is already taken
+            password:
+              blank: is empty
+              confirmation: password confirmation does not match
+              too_short: is too short
+            password_confirmation:
+              blank: ist leer
+            current_password:
+              blank: is empty
+              invalid: is invalid
+            confirmation_token:
+              invalid: is invalid
+
+
+
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.

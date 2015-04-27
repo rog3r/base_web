@@ -1,0 +1,13 @@
+class AddPermissionsToRoles < ActiveRecord::Migration
+  def up
+    create_table :permissions_roles do |t|
+      t.integer :permission_id
+      t.integer :role_id
+    end
+    add_index(:permissions_roles, [ :permission_id, :role_id ])
+  end
+
+  def down
+    drop_table :permissions_roles
+  end
+end

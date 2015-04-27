@@ -1,0 +1,27 @@
+<%= search_form_for([@plano_de_trabalho, @search]) do |s| %>
+
+    <div class="form-group pull-right">
+      <%= s.condition_fields do |c| %>
+          <%#= render "condition_fields", f: c %>
+
+          <%= c.attribute_fields do |a| %>
+              <%= a.attribute_select({associations: [:category], prompt:"Selecione o filtro", include_blank:false}, {id:'field', class: 'form-control-select'}) %>
+          <% end %>
+          <%#= c.predicate_select({}, {class: 'form-control-select'}) %>
+          <%= c.predicate_select({only: [:eq, :cont, :not_cont]}, {class: 'form-control-select'}) %>
+          <%#= hidden_field_tag("q[c][0][p]","cont", id: "q_c_0_p") %>
+          <%= c.value_fields do |v| %>
+              <%= v.text_field :value, id:'search_field', class: 'form-control-select' %>
+          <% end %>
+
+      <% end %>
+
+      <%= s.submit t('search'), class: 'btn btn-primary' %>
+
+    </div>
+
+    <div class="form-group">
+      <%#=s.label :nr_nota_fiscal_recibo %>
+      <%#= s.text_field :nr_nota_fiscal_recibo_eq , class: 'form-control' %>
+    </div>
+<% end %>

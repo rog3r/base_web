@@ -1,0 +1,16 @@
+pt-BR:
+  fileupload:
+    buttons:
+      add_files: Adicionar arquivos...
+      start_upload: Iniciar upload
+      cancel_upload: Cancelar upload
+      delete_multi: Deletar selecionados
+      delete: Deletar
+      check_all: Marcar todos
+    validations:
+      max_file_size: Arquivo muito grande
+      min_file_size: Arquivo muito pequeno
+      accept_file_types: Arquivo nao aceitado
+      max_number_of_files: Numero maximo de arquivos permitidos
+      uploaded_bytes: Uploaded bytes excedo o tamanho do arquivo
+      empty_result: Arquivo vazio upload result

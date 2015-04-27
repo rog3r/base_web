@@ -1,0 +1,9 @@
+<% flash.each do |type, message| %>
+    <% unless flash[type].blank? %>
+        <div class="alert <%= flash_class(type) %> fade in">
+          <button class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <%#= content_tag :p, flash[type], :id => "flash_#{type}" %>
+           <%= raw(message) %>
+        </div>
+    <% end %>
+<% end %>

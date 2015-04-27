@@ -1,0 +1,9 @@
+<h2><%= t('.title', default: "Edit #{User.model_name.human}") %></h2>
+
+<%= form_for(@user, html: {method: :put}) do |f| %>
+    <%= render 'shared/error_messages', object: @user %>
+    <%= render partial: 'form', locals: { f: f} %>
+    <div class="actions pull-right">
+      <%= link_to t('all'), users_path, class: 'btn btn-default' %> <%= f.submit t('save'), class: 'btn btn-info' %>
+    </div>
+<% end %>

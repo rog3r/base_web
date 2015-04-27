@@ -1,0 +1,4 @@
+class Permission < ActiveRecord::Base
+  has_many :permission_roles
+  has_many roles, throw: :permission_roles
+end

@@ -1,0 +1,68 @@
+<!--
+http://5minutenpause.com/blog/2013/09/04/multiple-file-upload-with-jquery-rails-4-and-paperclip/
+https://gist.github.com/xpepper/11382760
+-->
+
+<!--<form accept-charset="UTF-8" action="/product_attachments" enctype="multipart/form-data" id="fileupload" method="post">-->
+
+<%= form_for( :upload, html: {multipart: true, id: 'fileupload'  } ) do |f| %>
+    <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+    <div class="row fileupload-buttonbar">
+      <div class="span7">
+        <span class="btn btn-success fileinput-button"><!-- The fileinput-button span is used to style the file input field as button -->
+           <i class="icon-plus icon-white"></i><span><%= t('fileupload.buttons.add_files') %></span>       <%#= f.file_field :attachment %>
+           <%= f.file_field :attachment, name: 'product_attachment[attachment]', multiple: true %>
+           <%#= f.file_field :attachment %>
+        </span>
+        <button type="submit" class="btn btn-primary start"><i class="icon-upload icon-white"></i><span><%= t('fileupload.buttons.start_upload') %></span></button>
+        <button type="reset" class="btn btn-warning cancel"><i class="icon-ban-circle icon-white"></i><span><%= t('fileupload.buttons.cancel_upload') %></span></button>
+        <button type="button" class="btn btn-danger delete"><i class="icon-trash icon-white"></i><span><%= t('fileupload.buttons.delete_multi') %></span></button>
+        <input type="checkbox" class="toggle"> <span><%= t('fileupload.buttons.check_all') %></span>
+      </div>
+      <div class="span5">
+        <div class="progress progress-success progress-striped active fade"><!-- The global progress bar -->
+          <div class="bar" style="width:0%;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="fileupload-loading"></div><br />  <!-- The loading indicator is shown during image processing -->
+    <table class="table table-striped"><!-- The table listing the files available for upload/download -->
+      <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
+    </table>
+<% end %>
+
+
+<script>
+    var fileUploadErrors = {
+        maxFileSize: <%= t('fileupload.validations.max_file_size') %>,
+        minFileSize: <%= t('fileupload.validations.min_file_size') %>,
+        acceptFileTypes: <%= t('fileupload.validations.accept_file_types') %>,
+        maxNumberOfFiles:<%= t('fileupload.validations.max_number_of_files') %>,
+        uploadedBytes: <%= t('fileupload.validations.uploaded_bytes') %>,
+        emptyResult: <%= t('fileupload.validations.empty_result') %>
+    };
+</script>
+
+<%= render 'shared/fileupload/queue' %>
+<%= render 'shared/fileupload/index' %>
+
+
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        // Initialize the jQuery File Upload widget:
+        $('#fileupload').fileupload();
+        // Load existing files:
+        $.getJSON($('#fileupload').prop('action'), function (files) {
+            var fu = $('#fileupload').data('blueimp-fileupload'), template;
+            fu._adjustMaxNumberOfFiles(-files.length);
+            template = fu._renderDownload(files).appendTo($('#fileupload .files'));
+            // Force reflow:
+            fu._reflow = fu._transition && template.length && template[0].offsetWidth;
+            template.addClass('in');
+            $('#loading').remove();
+        });
+
+    });
+</script>
+
+

@@ -1,0 +1,28 @@
+$icon-font-path: "";
+
+@import 'metro-tiles';
+
+// First import cerulean variables
+@import "simplex/variables";
+
+@import "bootstrap-sprockets";
+// Then bootstrap itself
+@import "bootstrap";
+
+// And finally bootswatch style itself
+
+@import "simplex/bootswatch";
+
+@import 'sticky';
+@import 'error_messages';
+
+@import "grid";
+
+.navbar-nav li a:hover, a.navbar-brand {
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.navbar-nav li a:active {
+  font-weight: 600;
+}

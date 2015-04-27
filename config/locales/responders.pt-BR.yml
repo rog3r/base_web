@@ -1,0 +1,28 @@
+pt-BR:
+  flash:
+    actions:
+      create:
+        notice: "%{resource_name} criado com sucesso."
+      update:
+        notice: "%{resource_name} atualizado com sucesso."
+      destroy:
+        notice: "%{resource_name} removido com sucesso."
+        alert: "%{resource_name} não pode ser removido."
+  save: 'Salvar'
+  create: "Cadastrar"
+  edit: "Editar"
+  update: "Atualizar"
+  delete: "Excluir"
+  back: "Voltar"
+  print: "Imprimir"
+
+  number:
+    currency:
+      format:
+        unit: 'R$ '
+        delimiter: '.'
+        separator: ','
+        precision: 2
+        format: '%u%n'
+        significant: false
+        strip_insignificant_zeros: false

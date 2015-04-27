@@ -1,0 +1,64 @@
+en:
+  flash:
+    actions:
+      create:
+        notice: "%{resource_name} was successfully created."
+      update:
+        notice: "%{resource_name} was successfully updated."
+      destroy:
+        notice: "%{resource_name} was successfully destroyed."
+        alert: "%{resource_name} could not be destroyed."
+  save: 'Save'
+  create: "Create"
+  edit: "Edit"
+  update: "Update"
+  delete: "Delete"
+  back: "Back"
+  print: "Print"
+
+  number:
+    currency:
+      format:
+        unit: 'R$ '
+        delimiter: '.'
+        separator: ','
+        precision: 2
+        format: '%u%n'
+        significant: false
+        strip_insignificant_zeros: false
+
+#  flash:
+#    actions:
+#      create:
+#        notice: "%{resource_name} was successfully created."
+#      update:
+#        notice: "%{resource_name} was successfully updated."
+#      destroy:
+#        notice: "%{resource_name} was successfully destroyed."
+#        alert: "%{resource_name} could not be destroyed."
+#  products:
+#    create:
+#      notice: "Product was successfully created."
+#    update:
+#      notice: "Product was successfully updated."
+#    destroy:
+#      notice: "Product was successfully destroyed"
+#      alert: "Product could not be destroyed"
+#  save: 'Salvar'
+#  create: "Cadastrar"
+#  edit: "Editar"
+#  update: "Atualizar"
+#  delete: "Excluir"
+#  back: "Voltar"
+#  print: "Imprimir"
+#
+#  number:
+#    currency:
+#      format:
+#        unit: 'R$ '
+#        delimiter: '.'
+#        separator: ','
+#        precision: 2
+#        format: '%u%n'
+#        significant: false
+#        strip_insignificant_zeros: false

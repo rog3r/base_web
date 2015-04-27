@@ -1,0 +1,121 @@
+pt-BR:
+  datepicker:
+    dformat: '%d/%m/%Y'             # display format of the date (this is the default, can be ommited)
+    pformat: 'DD/MM/YYYY'           # picking format of the date (this is the default, can be ommited)
+  timepicker:
+    dformat: '%R'                   # display format of the time (this is the default, can be ommited)
+    pformat: 'HH:mm'                # picking format of the time (this is the default, can be ommited)
+  dayViewHeaderFormat: 'MMMM YYYY'  # picking format of the time (this is the default, can be ommited)
+  current_locale: Idioma
+  logout: Sair
+  confirm_logout: Sair do Sistema?
+  processing: Processando...
+  website_search: Digite o codigo de Atutenticidade
+  undo:  Desfazer
+  redo:  Refazer
+  undid: Desfeito
+  user_cannot_sign_in_if_not_registered: Usuario não pode logar sem estar registrado
+  export_selected: Exportar selecionado
+  history: Histórico
+  field: Campo
+  value: Valor
+  yes_label: 'Sim'
+  no_label: 'Não'
+  ok: Ok
+  of: De
+  for: Para
+  cancel: Cancelar
+  search: Buscar
+  advanced_search: Pesquisa Avançada
+  search_panel: Painel de Pesquisa
+  browser: Selecionar
+  no_file_selected: Nenhum arquivo selecionado
+  all: Ver todos
+  back: Voltar
+  edit: Editar
+  show: Detalhes
+  new: Novo
+  save_and_new: Salvar e Novo
+  delete: Excluir
+  confirm_delete: Confirmar deleção?
+  import_file: Importar Arquivo
+  choose_file: Escolha o Arquivo
+  send_file: Enviar Arquivo
+  close: Fechar
+  version_id: Versão ID
+  date_history: Data
+  target: Alvo
+  changeset: Mudanças
+  more_info: Mais Informações
+  attachment: Anexos
+  rh_direto: RH direto
+  rh_indireto: RH indireto
+  title: Plano de Trabalho
+  negado_acesso: Acesso Negado
+  financeiro_rhs:
+      index:
+        subtitle: Financeiros do RH
+      show:
+        subtitle: Financeiro do RH
+      new:
+        subtitle: Novo Financeiro do RH
+      edit:
+        subtitle: Editar Financeido do RH
+  activerecord:
+    models:
+      user: Usuário
+      centro_de_controle: Centro de Controle
+      empresa: Empresa
+      convenio: Convênio
+      plano_de_trabalho: Plano de Trabalho
+      rh: RH
+      fornecedor: Fornecedor
+    attributes:
+      user:
+        name: Nome
+        email: Email
+        password: Senha
+        password_confirmation: Confirme sua senha
+        current_password: Senha atual
+        remember_me: Lembre-se de mim
+        current_sign_in_at: Último acesso
+        locked: Bloqueado
+      financeiro_rh:
+        data: 'Mês de competência'
+        custo_hora: 'Custo/Hora'
+        hora_mes: 'Hora/Mês'
+        valor: Valor
+        status: Status
+        funcao: 'Função'
+        arquivo_file_name: Arquivo
+      rda:
+        capacitacao_tecnologica: Capacitação Tecnológica
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "não pode ficar em branco"
+              too_short: "muito curto"
+            email:
+              blank: "não pode ficar em branco"
+              invalid: "inválido"
+              taken: "is already taken"
+            password:
+              blank: "não pode ficar em branco"
+              confirmation: "as senhas não são iguais!"
+              too_short: "é muito curta"
+              invalid: "senha inválida."
+            password_confirmation:
+              confirmation: "não é igual a senha"
+              blank: "não pode ficar em branco."
+              invalid: "confirmação de senha inválida."
+            current_password:
+              blank: "não pode ficar em branco"
+              invalid: "inválida"
+            confirmation_token:
+              invalid: "inválido"
+        financeiro_rh:
+          attributes:
+            data:
+              rh_plano_de_trabalho_data_unicos: "já alocado para este RH"

@@ -1,0 +1,43 @@
+/*body{*/
+	/*background-image:url('/assets/trilho.jpg');*/
+	/*background-size:100% 100%;*/
+	/*z-index: -7;*/
+	/*background-repeat:no-repeat;*/
+	/*min-width:800px;*/
+    /*overflow-x: hidden;*/
+/*}*/
+
+/*.corpo{position:absolute;top:25%;}*/
+
+@media screen and (max-width: 400px){
+   .corpo{width:270px; min-width:370px;  top:5%; left: 18%;}
+   body{background-size:100% 115%}
+   #footer{bottom: 0; position: fixed;left: 30%; right: 20%; }
+}
+
+@media screen and (min-width: 401px) and (max-width: 484px){
+    .corpo{width:520px; left:0%}
+}
+
+@media screen and (min-width: 485px) and (max-width: 640px){
+    .corpo{width:523px; left:10%}
+}
+
+@media screen and (min-width: 641px) and (max-width: 799px){
+    .corpo{width:523px; left:18%}
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px){
+    .corpo{width:530px; left:26%}
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1370px){
+    .corpo{width:530px; left:33%}
+}
+
+@media screen and (min-width: 1371px) {
+    .corpo{width:570px; top:30%; left:37%}
+}
+
+
+

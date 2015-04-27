@@ -1,0 +1,40 @@
+pt-BR:
+  devise:
+    confirmations:
+      new:
+        title: Reenviar instruções de confirmação
+        submit: Reenviar instruções de confirmação
+      link: Não recebeu instruções de confirmação?
+    passwords:
+      edit:
+        title: Mudar sua senha
+        submit: Mudar minha senha
+      new:
+        title: Esqueceu sua senha?
+        submit: Me enviar instruções para reiniciar minha senha
+    registrations:
+      edit:
+        title: Editar %{resource}
+        submit: Atualizar
+        we_need_your_current_password_to_confirm_your_changes: senha atual obrigatória para realizar as mudanças
+        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se não quiser alterar a senha
+        currently_waiting_confirmation_for: Pendente confirmação do cadastro
+        cancel:
+          title: Cancelar minha conta
+          message: Não está contente?
+          action: Cancelar minha conta
+          confirm: Tem certeza?
+        back: Voltar
+      new:
+        title: Registrar
+        submit: Registrar
+    sessions:
+      new:
+        title: Login
+        submit: Login
+      link: Login com %{provider}
+    unlocks:
+      new:
+        title: Reenviar instruções de desbloqueio
+        submit: Reenviar instruções de desbloqueio
+      link: Não recebeu instruções de desbloqueio?

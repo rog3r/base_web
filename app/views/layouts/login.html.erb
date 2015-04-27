@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="author" content="RJO">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "SG Pro" %></title>
+
+  <%= stylesheet_link_tag "simplex", media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+  <!-- Javascripts
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+
+  <!--&lt;!&ndash;[if lt IE 9]>  &lt;!&ndash; HTML5 shim, for IE6-8 support of HTML elements &ndash;&gt;-->
+  <!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>-->
+  <!--<![endif]&ndash;&gt;-->
+
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= yield(:page_javascript) if content_for?(:page_javascript) %>
+
+  <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+
+  <script>
+      if ($.cookie("css")) {
+          $("link").attr("href", $.cookie("css"));
+      }
+      $(document).ready(function () {
+          $("#colorchanger li a").click(function () {
+              $("link").attr("href", $(this).attr('rel'));
+              $.cookie("css", $(this).attr('rel'), {expires: 365, path: '/'});
+              return false;
+          });
+
+          $('.datepicker').datepicker({
+              language: "pt-BR",
+              format: 'dd/mm/yyyy'
+          });
+
+          $('.selectpicker').selectpicker();
+
+          tinymce.init({
+              selector: '.html-editor',
+              menubar: false,
+              toolbar: " undo redo | bold | italic | alignleft | aligncenter | alignright | alignjustify | underline | bullist | numlist | outdent | indent "
+              //statusbar: false
+          });
+
+
+          //$('.selectpicker').selectpicker({
+          // style: 'btn-info',
+          //   size: 8
+          // });
+      });
+  </script>
+
+
+</head>
+<body>
+
+
+
+<div id="geral" class="container_12">
+
+  <div id="menu_topo" class="grid_12 alpha omega" style="width: 100%;">
+    <%= render 'layouts/partials/navbar' %>
+  </div>
+
+  <div id="mensagens" class="grid_12">
+    <%= render 'shared/bootstrap_dialog_modal' %>
+    <%= render partial: 'shared/flash_messages', flash: flash %>
+  </div>
+
+  <div id="conteudo" class="grid_12">
+    <%= yield %>
+  </div>
+
+</div>
+
+<footer id="footer">
+  <%= render 'layouts/partials/footer' %>
+</footer>
+
+</body>
+</html>

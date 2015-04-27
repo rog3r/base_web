@@ -1,0 +1,455 @@
+// First import cerulean variables
+//@import "bootstrap-select.css";
+@import "callout";
+@import "bootstrap-select";
+
+
+@import 'bootstrap-datetimepicker';
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.dropdown-menu li {
+  min-width: 100%;
+}
+
+body {
+  margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+.space-actions{
+  margin-top: 30px;
+}
+
+#footer {
+  margin-top: 40px !important;
+  padding-top: 10px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  vertical-align: middle;
+  position: fixed;
+  bottom: 0;
+  z-index: 900;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  background-color: #f5f5f5;
+}
+
+
+.fileContainer {
+    overflow: hidden;
+    position: relative;   
+    /*border-radius: .3em;*/
+    float: left;
+    padding: .5em; 
+    font-weight: normal !important;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;   
+    display: block;     
+    min-height: 100%;
+    min-width: 100%;   
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0; 
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+
+
+#file_status{
+  padding-left: 5px;
+  vertical-align: middle; 
+  padding-top:6px;   
+  display: inline-block;
+}
+
+.form-control-select{
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+ 
+
+
+.bs-callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px
+}
+
+.bs-callout p:last-child {
+  margin-bottom: 0
+}
+
+.bs-callout code {
+  border-radius: 3px
+}
+
+.bs-callout + .bs-callout {
+  margin-top: -5px
+}
+
+.bs-callout-danger {
+  border-left-color: #d9534f
+}
+
+.bs-callout-danger h4 {
+  color: #d9534f
+}
+
+.bs-callout-warning {
+  border-left-color: #f0ad4e
+}
+
+.bs-callout-warning h4 {
+  color: #f0ad4e
+}
+
+.bs-callout-info {
+  border-left-color: #5bc0de
+}
+
+.bs-callout-info h1 {
+  color: #666 !important
+}
+
+.bs-callout-info h2 {
+  color: #60a917 !important
+}
+
+.bs-callout-info h3 {
+  color: #4390df !important
+}
+
+.bs-callout-info h4 {
+  color: #5bc0de
+}
+
+.bs-callout-info h5 {
+  color: #dc4fad !important
+}
+
+.bs-callout-info h6 {
+  color: #00aba9 !important;
+  color: #fa6800 !important;
+  color: #4390df !important;
+  color: #128023 !important;
+  color: #dc4fad !important;
+  color: #aa00ff !important;
+  color: #9a1616 !important;
+  color: #eeeeee !important;
+  color: #f0a30a !important;
+  color: #a0e857 !important;
+  color: #fa6800 !important;
+  color: #e6f5fc !important;
+  color: #2e92cf !important;
+  color: #60a917 !important;
+  color: #1ba1e2 !important;
+}
+
+
+
+.checkbox, .radio {
+  margin-bottom: 20px;
+}
+
+/* --- START --- */
+
+.checkbox *,
+.radio *{
+  cursor: pointer;
+}
+
+.checkbox input,
+.radio input {
+  opacity: 0;
+}
+
+.checkbox span,
+.radio span{
+  position: relative;
+  display: inline-block;
+  margin-left: -25px;
+  vertical-align: top;
+  width: 20px; height: 20px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+
+.checkbox:hover span,
+.radio:hover span{
+  border-color:  $brand-primary;
+}
+
+.checkbox span:before,
+.radio span:before{
+  content: "\2713"; /* comment content to use custom icon classes */
+  position: absolute;
+  top: 0; left: 0;  right: 0; bottom: 0;
+  opacity: 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  vertical-align: middle;
+  color: $brand-primary;
+}
+
+/* override for radio */
+.radio span {
+  border-radius: 50%;
+}
+.radio span:before {
+  content: "";
+  width: 10px; height: 10px;
+  margin: 4px auto;
+  background-color: $brand-primary;
+  border-radius: 100px;
+}
+
+.checkbox input[type=checkbox]:checked + span,
+.radio input[type=radio]:checked + span{
+  border-color: $brand-primary;
+  background-color: $brand-primary;
+}
+
+.radio input[type=radio]:checked + span{
+  background-color: #fff;
+}
+
+.checkbox input[type=checkbox]:checked + span:before,
+.radio input[type=radio]:checked + span:before{
+  color: #fff;
+  opacity: 1;
+  transition: color .3 ease-out;
+}
+
+.checkbox input[type=checkbox]:disabled + span,
+.radio input[type=radio]:disabled + span{
+  border-color: #ddd !important;
+  background-color: #ddd !important;
+}
+
+/* --- Radio Button--- */
+.radioBtn .notActive{
+  background: none !important;
+  background-repeat: repeat-x;
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+  -webkit-font-smoothing: antialiased;
+}
+/* --- SWITCH --- */
+
+.switch * {
+  cursor: pointer;
+}
+
+.switch input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.switch span {
+  position: relative;
+  display: inline-block;
+  width: 58px; height: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 100px;
+  transition: all .5s;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.1) inset;
+}
+
+.switch span:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: 0; left: 0;
+  height: 28px; width: 28px;
+  border: 1px solid #ddd;
+  border-radius: 400px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  -webkit-transition: all .2s;
+}
+
+.switch input:checked + span {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  transition: all .5s;
+}
+
+.switch input:checked + span:after {
+  left: 50%;
+  transition: all .2s;
+}
+
+#conteudo { margin-bottom: 50px; }
+
+.dados div {
+  margin-bottom: 10px;
+}
+
+.dados .oculto {
+  display: none;
+}
+
+.dados .bloco_texto {
+  height: 150px;
+}
+
+.checks {
+  margin-bottom: 10px;
+}
+
+.checks p {
+  float: left;
+  margin-right: 40px;
+}
+.textos_checks {
+  clear: both;
+}
+
+#resumo_financeiro table input {
+  border: none;
+  background: none;
+}
+
+#resumo_financeiro table tr .success{
+  background-color: #dff0d8 !important;
+}
+
+#resumo_financeiro table tr .info{
+  background-color: #d9edf7 !important;
+}
+
+#resumo_financeiro table tr .warning{
+  background-color: #fcf8e3 !important;
+}
+
+.highlight-row{ /*Adicionar as cores das helper classes em _variables!*/
+  background-color: #f2dede !important;
+}
+
+.languages{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.flag {
+  width: 16px;
+  height: 11px;
+  background:url(flags.png) no-repeat
+}
+
+.flag.flag-br {background-position: -16px 0}
+.flag.flag-us {background-position: 0 -11px}
+
+//input[type=checkbox]:checked + label:before {
+//  content: "\2713";
+//  text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+//  font-size: 15px;
+//  color: #f3f3f3;
+//  text-align: center;
+//  line-height: 15px;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//input[type=radio] {
+//  opacity: 0;
+//  margin-right: -12px;
+//  cursor: pointer;
+//  width: 12px;
+//  height: 12px;
+//}
+//
+//input[type=radio] + span:before {
+//  content: " ";
+//  background-color: #ccc;
+//  display: inline-block;
+//  margin-right: 15px;
+//  width: 6px;
+//  height: 6px;
+//  border: 3px solid #fff;
+//  -webkit-border-radius: 10px;
+//  -moz-border-radius: 10px;
+//  border-radius: 10px;
+//  visibility: visible;
+//  box-shadow: 0 0 0px 2px #999;
+//}
+//
+//input[type=radio]:checked + span:before {
+//  background-color: #052;
+//}
+//
+//input[type=checkbox] {
+//  opacity: 0;
+//  margin-right: -12px;
+//  cursor: pointer;
+//  width: 12px;
+//  height: 12px;
+//}
+//
+//input[type=checkbox] + span:before {
+//  content: "0a0";
+//  display: inline-block;
+//  margin-right: 15px;
+//  width: 12px;
+//  height: 12px;
+//  visibility: visible;
+//  border: 2px dashed #999;
+//  -webkit-border-radius: 2px;
+//  -moz-border-radius: 2px;
+//  border-radius: 2px;
+//  line-height: 12px;
+//  font-size: 14px;
+//  text-align: center;
+//  font-weight: bold;
+//  color: #052;
+//}
+//
+//input[type=checkbox]:checked + span:before {
+//  content: "0d7";
+//}
+

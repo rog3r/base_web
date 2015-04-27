@@ -1,0 +1,211 @@
+body {
+    background: url("/assets/fundo.png") top left repeat-x;
+    font-size: 10px;
+    color: #333;
+}
+
+table thead th {
+    font-weight: bold;
+}
+
+fieldset {
+    border: 1px solid #CCCCCC;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+legend {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#conteudo h1 {
+    font-size: 20px;
+    padding: 5px;
+    padding-left: 0px;
+    padding-top: 0px;
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 10px;
+}
+
+#conteudo h2 {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 20px;
+    background: #EFEFEF;
+}
+
+#logo {
+    height: 86px;
+    margin-bottom: 20px;
+}
+
+#logo img {
+    margin-top: 5px;
+}
+
+#titulo {
+    height: 86px;
+    margin-bottom: 20px;
+}
+
+#titulo h1 {
+    font-size: 26px;
+    margin-top: 22px;
+}
+
+#sessao {
+    height: 86px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+#sessao p {
+    margin-right: 15px;
+    margin-top: 30px;
+}
+
+#menu {
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    text-align: center;
+}
+
+#menu p {
+    display: block;
+    border-bottom: 1px solid #EFEFEF;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#menu a img {
+    height: 21px;
+    width: 20px;
+}
+
+#menu a.menu-link {
+    margin-left: 10px;
+    padding-top: 9px;
+    padding-bottom: 7px;
+}
+
+.acoes img {
+    height: 18px;
+    position: relative;
+    top: -3px;
+    margin-left: 10px;
+}
+
+.acao {
+    text-align: center;
+    width: 20px;
+}
+
+.acao img {
+    height: 14px;
+}
+
+.busca {
+    margin-bottom: 0px;
+}
+
+.busca select {
+    width: 200px;
+    padding: 1px;
+    padding-bottom: 2px;
+}
+
+.busca input[type=text] {
+    width: 300px;
+}
+
+#loader {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.actions {
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.field {
+    margin-bottom: 10px;
+}
+
+.formulario {
+    display: table;
+    width: 100%;
+}
+
+.exibicao {
+    display: table;
+}
+
+.exibicao p {
+    margin-bottom: 10px;
+    padding: 5px;
+    padding-left: 0px;
+}
+
+.aprovado {
+    color: #3c763d;
+}
+
+.reprovado {
+    color: #b92c28;
+}
+
+.prestacao_pendente, .pendente_aprovacao,  .prestacao_pendente_aprovacao {
+    color: #d58512;
+}
+
+.concluido {
+    color: #2a6496;
+}
+
+.out{
+    margin: 0 !important;
+}
+
+#ui-datepicker-div {
+    width: 192px;
+}
+
+#popup .actions{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+label.error {
+    font-size: 10px;
+    font-weight: normal;
+    color: #b92c28;
+    margin-top: 3px;
+    position: absolute;
+    margin-left: 5px;
+    background: #e7c3c3;
+    padding: 2px;
+    border: 1px solid #b92c28;
+}
+
+input.error {
+    border: 1px solid #b92c28;
+}
+
+select.error {
+    border: 1px solid #b92c28;
+}
+
+#info_rubrica p {
+    padding: 5px;
+}
