@@ -20,3 +20,7 @@
 
 # Ignore database file
 /config/database.yml
+
+
+# Ignore Rubymine config .idea/**
+/.idea 
