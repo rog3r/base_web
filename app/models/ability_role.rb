@@ -3,9 +3,14 @@ class AbilityRole < ActiveRecord::Base
   belongs_to :role
   belongs_to :ability
 
-  validates :role_id,
-            presence: true,
-            uniqueness: {scope: [:ability_id]}
+
+
+  validates :ability_id,
+            uniqueness: {scope: [:role_id]}
+
+ # validates :role_id,
+ #           presence: true,
+ #           uniqueness: {scope: [:ability_id]}
 
   #https://github.com/onigra/pundit_sample/blob/master/spec/factories/ability.rb
   #validates :role_id,

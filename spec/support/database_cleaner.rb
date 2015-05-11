@@ -3,6 +3,7 @@ require 'database_cleaner'
 RSpec.configure do |config|
 
   config.before(:suite) do
+   # FactoryGirl.lint  #verifica se existe aguma Factory invalida antes de iniciar os testes
     DatabaseCleaner.clean_with(:truncation)
   end
 

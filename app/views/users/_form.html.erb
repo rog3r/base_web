@@ -18,9 +18,25 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
 </div>
+
+<fieldset>
+    <legend>Papeis</legend>
+    <% for role in Role.all %>
+        <div class="field form-group">
+          <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+          <%= role.name %>
+        </div>
+    <% end %>
+</fieldset>
+  
+  
 <% unless action_name == 'new' %>
+<fieldset>
+    <legend>Status</legend>
     <div class="field form-group">
       <%= check_box_for f, :locked %>
     </div>
+</fieldset>
+    
 <% end %>
 

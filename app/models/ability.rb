@@ -2,6 +2,9 @@ class Ability < ActiveRecord::Base
   has_many :ability_roles
   has_many :roles, through: :ability_roles
 
+  validates :ability,
+            uniqueness: {scope: [:domain]}
+
   def self.ability_hash(ability_id, result = {})
     self.group_by_domain(ability_id).each do |domain, abilities|
       result[domain] = abilities.map { |item| item.ability }

@@ -1,0 +1,42 @@
+<h2><%= t('.title', default: Role.model_name.human.pluralize) %></h2>
+
+<%#= render 'search_form' %>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><%= sort_link @search, :name %> </th> 
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @roles.each do |role| %>
+      <%= render partial: 'role', locals: {role: role} %>      
+  <% end %>
+  </tbody>
+</table>
+
+
+<div class="actions pull-left">
+  <%= will_paginate @roles %>
+</div>
+
+      
+  <div class="actions pull-right">
+  <%= link_to t('back'), :back, class: 'btn btn-default' %> <%= link_to t('new'), new_role_path, class: 'btn btn-primary ' %> <%= link_to t('permissions'), edit_multiple_roles_path, class: 'btn btn-info ' %>
+</div>
+
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+       

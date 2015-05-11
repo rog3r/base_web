@@ -84,6 +84,7 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'rspec-collection_matchers'
   gem 'faker'
   gem 'database_cleaner'       # Database Cleaner
   gem 'capybara'               # DOM Dominator

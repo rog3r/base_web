@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150821193763) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "abilities", force: :cascade do |t|
     t.string   "domain",     index: {name: "index_abilities_on_domain_and_ability", with: ["ability"]}
     t.string   "ability"
@@ -33,12 +36,6 @@ ActiveRecord::Schema.define(version: 20150821193763) do
     t.datetime "updated_at"
   end
   add_index "abilities_roles", ["ability_id", "role_id"], name: "index_abilities_roles_on_ability_id_and_role_id"
-
-  create_table "permissions_roles", force: :cascade do |t|
-    t.integer "permission_id", index: {name: "fk__permissions_roles_permission_id"}, foreign_key: {references: "permissions", name: "fk_permissions_roles_permission_id", on_update: :no_action, on_delete: :no_action}
-    t.integer "role_id",       index: {name: "fk__permissions_roles_role_id"}, foreign_key: {references: "roles", name: "fk_permissions_roles_role_id", on_update: :no_action, on_delete: :no_action}
-  end
-  add_index "permissions_roles", ["permission_id", "role_id"], name: "index_permissions_roles_on_permission_id_and_role_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false, index: {name: "index_users_on_email", unique: true}

@@ -1,41 +1,37 @@
-Ability.create!([
-  { id: 1,  domain: 'admin', ability: 'admin' },
-  { id: 2,  domain: 'user',  ability: 'index' },
-  { id: 3,  domain: 'user',  ability: 'show' },
-  { id: 4,  domain: 'user',  ability: 'create' },
-  { id: 5,  domain: 'user',  ability: 'update' },
-  { id: 6,  domain: 'user',  ability: 'destroy' },
-  { id: 7,  domain: 'role',  ability: 'index' },
-  { id: 8,  domain: 'role',  ability: 'show' },
-  { id: 9,  domain: 'role',  ability: 'create' },
-  { id: 10, domain: 'role',  ability: 'update' },
-  { id: 11, domain: 'role',  ability: 'destroy' }
-])
 
-Role.create!([
-  { id: 1, name: 'Administrator' },
-  { id: 2, name: 'User' },
-  { id: 3, name: 'View' } 
-])
+admin_admin  = Ability.create!( domain: 'admin', ability: 'admin' )
 
-AbilityRole.create!([
-  { role_id: 1, ability_id: 1 }, 
-  { role_id: 2, ability_id: 2 },
-  { role_id: 2, ability_id: 3 },
-  { role_id: 2, ability_id: 4 },
-  { role_id: 2, ability_id: 5 },
-  { role_id: 2, ability_id: 6 }, 
-  { role_id: 3, ability_id: 7 },
-  { role_id: 3, ability_id: 8 },
-  { role_id: 3, ability_id: 9 },
-  { role_id: 3, ability_id: 10 },
-  { role_id: 3, ability_id: 11 } 
-])
+user_index   = Ability.create!( domain: 'user',  ability: 'index' )
+user_show    = Ability.create!( domain: 'user',  ability: 'show' )
+user_create  = Ability.create!( domain: 'user',  ability: 'create' )
+user_update  = Ability.create!( domain: 'user',  ability: 'update' )
+user_destroy = Ability.create!( domain: 'user',  ability: 'destroy' )
+
+role_index   = Ability.create!( domain: 'role',  ability: 'index' )
+role_show    = Ability.create!( domain: 'role',  ability: 'show' )
+role_create   = Ability.create!( domain: 'role',  ability: 'create' )
+role_update  = Ability.create!( domain: 'role',  ability: 'update' )
+role_destroy   = Ability.create!( domain: 'role',  ability: 'destroy' )
+
+
+admin_role = Role.create!( name: 'administrator')
+admin_role << admin_role
+
+user_role  = Role.create!( name: 'user')
+user_role << [user_index, user_show, user_create, user_update, user_destroy]
+
+support_role  = Role.create!( name: 'supporte')
+support_role << [user_index, user_show, user_create, user_update, user_destroy, role_index, role_show, role_create, role_update, role_destroy]
+
+guest_role = Role.create!( name: 'guest')
+# no Roles
+
+
 
 User.create!([ 
-  { name: 'admin'    ,  email: 'admin@example.com', password: 'adminadmin' },
-  { name: 'user_role',   email: 'user@example.com' , password: 'useruser' },
-  { name: 'role_role',   email: 'role@example.com' , password: 'rolerole' },
-  { name: 'view_role',   email: 'view@example.com' , password: 'viewview' }
+  { name: 'admin'       , email: 'admin@example.com',   password: 'abc123456' , roles: [admin_role ]},
+  { name: 'user_role'   , email: 'user@example.com',    password: 'abc123456' , roles: [ user_role, guest_role ] },
+  { name: 'support_role', email: 'support@example.com', password: 'abc123456' , roles: [ support_role ] },
+  { name: 'guest_role'  , email: 'view@example.com' ,   password: 'abc123456' , roles: [ guest_role ] }
 ])
 

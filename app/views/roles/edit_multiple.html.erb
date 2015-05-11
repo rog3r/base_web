@@ -1,0 +1,71 @@
+<h2><%= t('.title', default: Role.model_name.human.pluralize) %></h2>
+
+<%= form_tag update_multiple_roles_path, method: :put do %>
+
+      
+      
+      
+      
+<% @permissions = Ability.except_admin.group_by(&:domain)%>
+      
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Permissions</th>  
+  </tr>
+  </thead>
+
+  <tbody>  
+    
+
+    <% @permissions.keys.sort.each do |domain| %> 
+        
+      <tr> 
+       <th><%=domain%></th>  
+    
+       <% @roles.each do |role| %>
+       <th ><%= role.name %></th>
+       <% end %>
+
+      </tr>
+     
+      
+        <%@permissions[domain].each do |permission|%>
+          
+         <tr>
+            <td><%=  permission.ability %></td>        
+            
+            <% @roles.each do |role| %>
+               <td><%= check_box_tag "roles[#{role.id}][ability_ids][]", permission.id, role.ability_roles.map(&:ability_id).include?(permission.id) %></td>
+               <!--<td><%#= check_box_tag "roles[#{role.id}][ability_ids][]", permission.id, role.ability_roles.include?(permission) %></td>-->
+            <!--<td><%#= check_box_tag "role[ability_roles_attributes][][ability_id]", permission.id, role.ability_roles.map(&:ability_id).include?(permission.id) ? permission.id : nil %></td>-->
+            <% end %>
+         
+         </tr>  
+        <%end%>
+
+        
+      
+    <%end%>
+      
+  </tbody>
+</table>
+
+
+
+
+    <div class="actions pull-right">
+      <%= link_to t('back'), :back, class: 'btn btn-default' %>
+      <%= submit_tag t('save') , class: 'btn btn-primary', data: {disable_with: "Processsing..."} %>
+      <%= submit_tag t('save_and_new'), name: 'save_and_new' , class: 'btn btn-info', data: {disable_with: "Processsing..."} %>
+    </div>
+
+
+<% end %>
+      
+      
+      
+      
+      
+      
+       

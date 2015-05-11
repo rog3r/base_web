@@ -1,0 +1,40 @@
+<%= render 'shared/error_messages', object: @role %> 
+    
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+      
+ 
+      
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th colspan='2'>Permissions</th>  
+  </tr>
+  </thead>
+
+  <tbody>
+
+
+    <% @permissions.keys.sort.each do |domain| %>
+        
+      <tr class='group'> 
+       <th><%= domain %></th> 
+       <td><input type="checkbox"  data-checkall-control="<%= domain %>"> <strong>Check all</strong></td>
+      </tr>
+     
+      
+        <%@permissions[domain].each do |permission|%>
+         <tr>
+            <td>- <%=  permission.ability %></td>
+            <td><%= check_box_tag 'role[ability_ids][]', permission.id, @role.ability_roles.map(&:ability_id).include?(permission.id) , 'data-checkall-group'=> permission.domain %></td>
+         </tr>
+         
+        <%end%>        
+      
+    <%end%>
+      
+  </tbody>
+</table>      
+

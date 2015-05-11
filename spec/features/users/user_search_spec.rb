@@ -13,7 +13,7 @@ feature 'admin searching for a specific user' do
     let(:search_btn) { I18n.t('search') } #'Search'
 
     before(:each) do
-      admin = FactoryGirl.create(:admin_user)
+      admin = FactoryGirl.create(:user, :with_admin_role)# FactoryGirl.create(:admin_user)
       login_as(admin, scope: :user)
       user1 = FactoryGirl.create(:user, email: 'user_one@email.com')
       user2 = FactoryGirl.create(:user, email: 'user_two@email.com')

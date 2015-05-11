@@ -12,7 +12,8 @@
     <% if controller_name != 'login' %>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav"> 
-             <li><%= link_to User.model_name.human, users_path %></li> 
+             <li><%= link_to User.model_name.human.pluralize, users_path %></li> 
+             <li><%= link_to Role.model_name.human.pluralize, roles_path %></li> 
             <!--TODO internacionalizar link e bloquear acesso nao autorizado -->
           </ul>
 
@@ -28,7 +29,8 @@
               <!--</p>-->
 
                <i>
-                <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                <%#- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                <%- if Devise.mappings[:user].registerable? && controller_name != 'registrations' %>
                     <%= link_to "Logged as #{current_user}", edit_user_registration_path(current_user), class: 'navbar-link' %>
                 <% else %>
                     <%= link_to "Logged as #{current_user}", edit_user_path(current_user), class: 'navbar-link' %>

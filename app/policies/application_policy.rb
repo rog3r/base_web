@@ -38,8 +38,9 @@ class ApplicationPolicy
     Pundit.policy_scope!(user, record.class)
   end
 
-  def can?(ability)
-    (user.ability.include?(record.class.to_s.underscore) && user.ability[record.class.to_s.underscore].include?(ability))
+  def can?(permission)
+    domain = record.class.to_s.underscore
+    user.abilities.uniq.include? Ability.find_by(domain: domain, ability: permission)
   end
 
   class Scope

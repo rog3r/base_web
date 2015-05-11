@@ -4,7 +4,7 @@
 #   I want to sign out
 #   So I can protect my account from unauthorized access
 feature 'Sign out', :devise do
-  let(:user) { FactoryGirl.create(:admin_user) } #let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user) }
 
   # Scenario: User signs out successfully
   #   Given I am signed in

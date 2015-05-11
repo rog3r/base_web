@@ -1,10 +1,7 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-
   has_many :role_users
   has_many :roles, through: :role_users
-
+  has_many :abilities, through: :roles
 
   devise :database_authenticatable,
          #:registerable,
@@ -19,50 +16,19 @@ class User < ActiveRecord::Base
 
   before_create :skip_notification! 
   after_create :skip_confirmation!
-
-
-
-
-  def roles_abilities
-
-  end
-
+  
+  
+  scope :except_admin, -> {
+    joins(:roles).where.not(roles: { name: 'administrator'} )
+  }
 
   ## Pundit -----------------------------------------------------------
-  #
-  #def ability
-  #  Ability.ability_hash self.role.roles_abilities.map(&:ability_id)
-  #end
-  #
-  #def admin?
-  #  ability.include? 'admin'
-  #end
-  #
-  #scope :except_admin, -> {
-  #  joins(:role).where.not(roles: { name: 'administrator'} )
-  #}
+
+  def admin? #TODO - rever comparação case insensitive
+    roles.pluck(:name).include? 'administrator'  #roles.map(&:name).include? 'Administrator' #roles.where(name: 'administrator').exists?
+  end
 
 ## Pundit end
-
-
-
- #http://blog.joshsoftware.com/2012/10/23/dynamic-roles-and-permissions-using-cancan/
-  #load the permissions for the current user so that UI can be manipulated
-  #def load_permissions
-  #  @current_permissions = current_user.role.permissions.collect{|i| [i.subject_class, i.action]}
-  #end
-
-  #http://blog.endpoint.com/2011/11/advanced-rights-roles-management-rails.html
-  #def can_do_method?(method)
-  #  self.rights.detect { |r| r.name == method }
-  #end
-  # Usage: current_user.can_do_method?("example_right1")
-
-  #Converts it to a string camel cases it.
-  def role?(role)
-    return !!self.roles.find_by_name(role.to_s.camelize)
-  end
- 
 
   def self.ransackable_attributes(auth_object = nil)
     %w( name email ) + _ransackers.keys
@@ -83,7 +49,7 @@ class User < ActiveRecord::Base
   end
 
 
-  #----- Custom locked ---------
+  #----- Custom Devise Locked ---------
   #
   def active_for_authentication?
     super && !locked
@@ -93,7 +59,7 @@ class User < ActiveRecord::Base
     !locked ? super : :locked
   end
 
-  ## -------
+  ## ----------------------------------
 
 
 end

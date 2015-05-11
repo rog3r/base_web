@@ -3,9 +3,16 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  
+  include Pundit
+  #rescue_from NotAuthorizedError, with: :render_404
+  rescue_from Pundit::NotAuthorizedError, with: :render_404
+  #rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   before_filter :authenticate_user!
   before_filter :set_locale
   before_filter :configure_permitted_parameters, if: :devise_controller?
+
 
   def build_basic_search(collection_resource)
     @search = collection_resource.search(params[:q])
@@ -22,14 +29,33 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
+
+
+
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :name
-    devise_parameter_sanitizer.for(:account_update) << :name 
+    devise_parameter_sanitizer.for(:sign_up) << :name            #[ :name ,  role_ids: [] ]
+    devise_parameter_sanitizer.for(:account_update) << :name     #[ :name ,  role_ids: [] ]
   end
 
 
   private
+
+  def render_404(exception = nil)
+    if exception
+      logger.info "Rendering 404 with exception: #{exception.message}"
+    end
+    render file: "#{Rails.root}/public/404.html", status: 404, content_type: 'text/html'
+  end
+
+
+  def user_not_authorized
+    flash[:error] = 'Você não tem permissão para fazer esta ação'
+    redirect_to(request.referrer || root_path)
+  end
+
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end

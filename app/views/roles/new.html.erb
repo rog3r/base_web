@@ -1,0 +1,16 @@
+<h2><%= t('.title', default: "New #{Role.model_name.human}") %></h2>
+
+<%= form_for(@role) do |f| %>
+    <%= render partial: 'form', locals: { f: f} %>
+    
+    <div class="actions pull-right">
+      <%= link_to t('all'), roles_path, class: 'btn btn-default' %>
+      <%= f.submit class: 'btn btn-primary', data: {disable_with: "Processsing..."} %>
+      <%= submit_tag t('save_and_new'), name: 'save_and_new' , class: 'btn btn-info', data: {disable_with: "Processsing..."} %>
+    </div>
+<% end %>
+
+
+
+ 
+

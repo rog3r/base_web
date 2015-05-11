@@ -1,6 +1,7 @@
 # encoding: utf-8
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]  
+  before_action :pundit_auth
 
   respond_to :html
   responders :flash
@@ -41,6 +42,11 @@ class UsersController < ApplicationController
   end
 
   def user_params # Never trust parameters from the scary internet, only allow the white list through.
-    params.require(:user).permit(:name, :email, :password, :locked, :role_id)
+    params.require(:user).permit(:name, :email, :password, :locked, role_ids: [])
   end
+
+  def pundit_auth
+    authorize User.new
+  end
+
 end

@@ -39,6 +39,7 @@ RSpec.configure do |config|
   #
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
+
   config.include Warden::Test::Helpers
   config.before :suite do
     Warden.test_mode!

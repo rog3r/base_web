@@ -1,0 +1,5 @@
+<tr>
+  <td><%= role.name.titleize %></td>
+  <td><%= link_to '', edit_role_path(role), class: 'glyphicon glyphicon-pencil btn-xs btn-primary', title: t('edit')  %></td>
+  <td><%= link_to '', role, method: :delete, data: { confirm: "Confirma deleção?", ok: t('ok'), cancel: t('cancel')}, class: 'glyphicon glyphicon-remove btn-xs btn-danger', title: t('delete') %></td>
+</tr>

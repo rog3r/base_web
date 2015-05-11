@@ -7,8 +7,13 @@ feature 'User delete', :devise do
    #.model_name.human, default: "Edit #{resource_name.to_s.humanize
   let(:deleted_msg) { I18n.t('flash.actions.destroy.notice', resource_name: User.model_name.human) } # { 'Usuario removido com sucesso' } #
 
-  before :each do
-  #  User.delete_all
+  #let(:other_user) { FactoryGirl.create(:user, email:'other_user@email.com')}
+  #let(:me) { FactoryGirl.create(:user, :with_admin_role) }
+
+
+  before(:each) do
+    User.delete_all
+    10.times { FactoryGirl.create(:user) }
   end
 
   ## Scenario: User can't delete own account
@@ -16,12 +21,18 @@ feature 'User delete', :devise do
   ##   When I delete my account
   ##   Then I should see an account deleted message
   scenario "user can't delete own account", :js do
-    User.delete_all
-    10.times { FactoryGirl.create(:user) }
-    other_user = FactoryGirl.create(:confirmed_user)
-    me = FactoryGirl.create(:admin_user)
+    # User.delete_all
+    # 10.times { FactoryGirl.create(:user) }
+    # other_user = FactoryGirl.create(:user, email:'other_user@email.com')
+    # me = FactoryGirl.create(:user, :with_admin_role)#FactoryGirl.create(:admin_user)
+
+    other_user = FactoryGirl.create(:user, email:'other_user@email.com')
+    me = FactoryGirl.create(:user, :with_admin_role)
     sign_in(me)
+    #login_as(me, scope: :user)
+    sleep(0.5)
     visit users_path
+    sleep(2)
     expect(page).to have_selector(:delete_link, user_path(other_user))
   end
 
@@ -30,10 +41,13 @@ feature 'User delete', :devise do
   #   When I delete other account
   #   Then I should see an account deleted message
   scenario 'user can delete other account', :js do
-    User.delete_all
-    10.times { FactoryGirl.create(:user) }
-    other_user = FactoryGirl.create(:confirmed_user)
-    me = FactoryGirl.create(:admin_user)
+    # User.delete_all
+    # 10.times { FactoryGirl.create(:user) }
+    # other_user = FactoryGirl.create(:user, email:'other_user@email.com')
+    # me = FactoryGirl.create(:admin_user)
+
+    other_user = FactoryGirl.create(:user, email:'other_user@email.com')
+    me = FactoryGirl.create(:user, :with_admin_role)
     sign_in(me)
     visit users_path
     find(:delete_link, user_path(other_user)).click
