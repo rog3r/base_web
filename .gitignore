@@ -22,5 +22,8 @@
 /config/database.yml
 
 
+# Ignore newrelic file
+/config/newrelic.yml
+
 # Ignore Rubymine config .idea/**
 /.idea 
