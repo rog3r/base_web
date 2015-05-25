@@ -15,7 +15,7 @@ role_destroy   = Ability.create!( domain: 'role',  ability: 'destroy' )
 
 
 admin_role = Role.create!( name: 'administrator')
-admin_role << admin_role
+admin_role << admin_admin
 
 user_role  = Role.create!( name: 'user')
 user_role << [user_index, user_show, user_create, user_update, user_destroy]

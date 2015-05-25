@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150821193763) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "abilities", force: :cascade do |t|
     t.string   "domain",     index: {name: "index_abilities_on_domain_and_ability", with: ["ability"]}
     t.string   "ability"

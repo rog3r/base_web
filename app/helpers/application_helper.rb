@@ -1,7 +1,7 @@
 # encoding: utf-8
 module ApplicationHelper
 
-  def humannize_boolean(boolean)
+  def humanize_boolean(boolean)
     #boolean ? 'Sim' : 'Não' # TODO - internacionalizar usando linha abaixo:
     boolean ? t('yes_label') : t('no_label')
   end

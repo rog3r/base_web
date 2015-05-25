@@ -8,5 +8,7 @@ BaseWeb::Application.routes.draw do
     end
   end
 
-  root to: 'users#index'
+  get 'dashboard', to: 'dashboard#index'
+
+  root to: 'dashboard#index'
 end

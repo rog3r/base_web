@@ -12,6 +12,8 @@ class RolesController < ApplicationController
   end
 
   def show
+    @permissions = @role.abilities#.group_by(&:domain)#@permissions = Permission.all
+    #@permissions = @role.abilities.group_by(&:domain)#@permissions = Permission.all
   end
 
   def new

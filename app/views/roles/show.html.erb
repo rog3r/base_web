@@ -1,0 +1,22 @@
+<h2><%= t('.title', default: Role.model_name.human) %></h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><%= @role.name.camelize %> Permissions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @permissions.each do |permission| %>
+      <tr>
+        <td>- <%= permission.ability %></td>
+      </tr>
+  <% end %>
+  </tbody>
+
+</table>
+
+<div class="actions pull-right">
+  <%= link_to t('all'), roles_path, class: 'btn btn-default' %> <%= link_to t('edit'), edit_role_path(@role), class: 'btn btn-primary ' %> <%= link_to t('new'), new_role_path, class: 'btn btn-info ' %>
+</div>

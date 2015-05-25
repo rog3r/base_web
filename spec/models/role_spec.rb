@@ -5,7 +5,6 @@ describe Role do
   # role
    let(:admin_role) { FactoryGirl.find_or_create(:admin_role) }
    let(:support_role) { FactoryGirl.find_or_create(:support_role) }
-   let(:support_user) { FactoryGirl.find_or_create(:support_user) }
   # let(:user_role) { FactoryGirl.create(:user_role) }
   # let(:user_supporte_role) { FactoryGirl.create(:user, :with_support_roles)}
 

@@ -2,5 +2,5 @@
 
 <p><strong><%= User.human_attribute_name(:name) %>:</strong> <%= @user.name if @user.name %></p>
 <p><strong><%= User.human_attribute_name(:email) %>:</strong> <%= @user.email if @user.email %></p>
-<p><strong><%= User.human_attribute_name(:locked) %>:</strong> <%=  humannize_boolean @user.locked %></p>
+<p><strong><%= User.human_attribute_name(:locked) %>:</strong> <%=  humanize_boolean @user.locked %></p>
 <p><strong><%= User.human_attribute_name(:current_sign_in_at) %>:</strong> <%=  @user.current_sign_in_at.to_formatted_s(:short) %></p>

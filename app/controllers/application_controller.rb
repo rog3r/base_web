@@ -55,6 +55,12 @@ class ApplicationController < ActionController::Base
     redirect_to(request.referrer || root_path)
   end
 
+  def permission_denied
+    flash[:error] = "You don't have the proper permissions to view this page. If you think you are supposed to then please contact us at support@baseweb.com"
+    self.response_body = nil # This should resolve the redirect root.
+    redirect_to_back_or_default #redirect_to(request.referrer || root_path)
+  end
+
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale

@@ -20,13 +20,6 @@
 #   inflect.plural /^(ox)$/i, '\1en'
 #   inflect.singular /^(ox)en/i, '\1'
 #   inflect.irregular 'person', 'people'
-#    inflect.irregular 'aprovador', 'aprovadores'
-#    inflect.irregular 'aprovacao', 'aprovacoes'
-#    #inflect.irregular 'solicitacao_aprovacao', 'solicitacao_aprovacoes'
-#    inflect.irregular 'grupo_aprovador', 'grupo_aprovadores'
-#    inflect.irregular 'GrupoAprovador', 'GrupoAprovadores'
-#    inflect.irregular 'perfil_aprovador', 'perfil_aprovadores'
-#    inflect.irregular 'PerfilAprovador', 'PerfilAprovadores'
 #   inflect.uncountable %w( fish sheep )
  end
 

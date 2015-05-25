@@ -1,59 +1,255 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-  }
 
-  div.dialog {
-    width: 25em;
-    margin: 4em auto 0 auto;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 4em 0 4em;
-  }
+    <meta charset="UTF-8"/>
+    <title>404 Error </title>
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
 
-  body > p {
-    width: 33em;
-    margin: 0 auto 1em;
-    padding: 1em 0;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
+
+    <link rel="stylesheet" media="all" href="/assets/simplex.css">
+    <!-- Plugins CSS-->
+
+
+    <style>
+
+       #content {
+            margin-top: 15% !important;
+            margin-left: 25% !important;
+            /*border: 1px solid red;*/
+        }
+
+        .content-header{
+            float: left;
+        }
+
+        .headline {
+
+            font-size: 2000%;
+            font-weight: 300;
+        }
+
+        .text-yellow {
+            color: #f39c12 !important;
+        }
+
+        .box-error {
+            margin-top: 5% !important;
+            /*border: 1px solid blue*/
+        }
+
+    </style>
+
 </head>
 
 <body>
-  <!-- This file lives in public/404.html -->
-   <h1>404</h1>
-  <div class="dialog">
-    <h2>The page you were looking for doesn't exist.</h2>
-    <p>You may have mistyped the address or the page may have moved.</p>
-  </div>
-  <p>If you are the application owner check the logs for more information.</p>
+        <div id="content" class="col-sm-12 full">
+
+            <section class="content-header">
+                <h1 class="headline text-yellow">404</h1>
+            </section>
+
+            <section class="box-error">
+                <h2>Oops! Bad request ...</h2>
+                <p>The request cannot be fulfilled due to bad syntax.</p>
+                <a href="javascript: history.back()">
+                    <button type="button" class="btn btn-primary"><i class="fa fa-chevron-left"></i> Go Back </button>
+                </a>
+                <a href="/users/sign_in">
+                    <button type="button" class="btn btn-primary"><i class="fa fa-lock"></i> Login</button>
+                </a>
+            </section>
+
+        </div>
 </body>
-</html>
+
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<title>The page you were looking for doesn't exist (404)</title>-->
+<!--<style>-->
+<!--body {-->
+<!--background-color: #EFEFEF;-->
+<!--color: #2E2F30;-->
+<!--text-align: center;-->
+<!--font-family: arial, sans-serif;-->
+<!--}-->
+
+<!--div.dialog {-->
+<!--width: 25em;-->
+<!--margin: 4em auto 0 auto;-->
+<!--border: 1px solid #CCC;-->
+<!--border-right-color: #999;-->
+<!--border-left-color: #999;-->
+<!--border-bottom-color: #BBB;-->
+<!--border-top: #B00100 solid 4px;-->
+<!--border-top-left-radius: 9px;-->
+<!--border-top-right-radius: 9px;-->
+<!--background-color: white;-->
+<!--padding: 7px 4em 0 4em;-->
+<!--}-->
+
+<!--h1 {-->
+<!--font-size: 100%;-->
+<!--color: #730E15;-->
+<!--line-height: 1.5em;-->
+<!--}-->
+
+<!--body > p {-->
+<!--width: 33em;-->
+<!--margin: 0 auto 1em;-->
+<!--padding: 1em 0;-->
+<!--background-color: #F7F7F7;-->
+<!--border: 1px solid #CCC;-->
+<!--border-right-color: #999;-->
+<!--border-bottom-color: #999;-->
+<!--border-bottom-left-radius: 4px;-->
+<!--border-bottom-right-radius: 4px;-->
+<!--border-top-color: #DADADA;-->
+<!--color: #666;-->
+<!--box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);-->
+<!--}-->
+
+
+<!--.error-page>.headline {-->
+<!--float: left;-->
+<!--font-size: 100px;-->
+<!--font-weight: 300;-->
+<!--}-->
+
+<!--.text-yellow {-->
+<!--color: #f39c12 !important;-->
+<!--}-->
+<!--.error-page>.error-content {-->
+<!--/*margin-left: 190px;*/-->
+<!--display: block;-->
+<!--}-->
+
+<!--</style>-->
+
+
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">-->
+<!--<meta name="author" content="RJO">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--<title>Base Web</title>-->
+
+<!--<link rel="stylesheet" media="all" href="/assets/simplex.css" data-turbolinks-track="true">-->
+
+
+<!--</head>-->
+
+
+<!--</head>-->
+
+
+<!--<body>-->
+
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<div class="col-md-12  text-center">-->
+<!--<div class="error-template">-->
+<!--<h1>-->
+<!--Oops!</h1>-->
+<!--<h2>-->
+<!--404 Not Found</h2>-->
+<!--<div class="error-details">-->
+<!--Sorry, an error has occured, Requested page not found!-->
+<!--</div>-->
+<!--<div class="error-actions">-->
+<!--<a href="http://www.jquery2dotnet.com" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>-->
+<!--Take Me Home </a><a href="http://www.jquery2dotnet.com" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<!--&lt;!&ndash;&lt;!&ndash; Start: Content &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="container-fluid content">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash; Main Page &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<div id="content" class="col-sm-12 full">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="row box-error">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="col-lg-12 col-md-12 col-xs-12">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="text-center">&ndash;&gt;-->
+<!--&lt;!&ndash;<h1>404</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;<h2>Oops! Bad request ...</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>The request cannot be fulfilled due to bad syntax.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="javascript: history.go(-1)">&ndash;&gt;-->
+<!--&lt;!&ndash;<button type="button" class="btn btn-primary"><i class="fa fa-chevron-left"></i> Go Back</button>&ndash;&gt;-->
+<!--&lt;!&ndash;</a>&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="page-login.html">&ndash;&gt;-->
+<!--&lt;!&ndash;<button type="button" class="btn btn-primary"><i class="fa fa-lock"></i> Login</button>&ndash;&gt;-->
+<!--&lt;!&ndash;</a>&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="page-profile.html">&ndash;&gt;-->
+<!--&lt;!&ndash;<button type="button" class="btn btn-primary"><i class="fa fa-envelope"></i> Contact Admin</button>&ndash;&gt;-->
+<!--&lt;!&ndash;</a>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash; End Main Page &ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&lt;!&ndash;/container&ndash;&gt;&ndash;&gt;-->
+
+
+<!--</body>-->
+
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+
+<!--<div class="content-wrapper" style="min-height: 1066px;">-->
+<!--&lt;!&ndash; Content Header (Page header) &ndash;&gt;-->
+<!--<section class="content-header">-->
+<!--<h1>-->
+<!--404 Error Page-->
+<!--</h1>-->
+<!--<ol class="breadcrumb">-->
+<!--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
+<!--<li><a href="#">Examples</a></li>-->
+<!--<li class="active">404 error</li>-->
+<!--</ol>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Main content &ndash;&gt;-->
+<!--<section class="content">-->
+
+<!--<div class="error-page">-->
+<!--<h2 class="headline text-yellow"> 404</h2>-->
+<!--<div class="error-content">-->
+<!--<h3><i class="fa fa-warning text-yellow"></i> Oops! Page not found.</h3>-->
+<!--<p>-->
+<!--We could not find the page you were looking for.-->
+<!--Meanwhile, you may <a href="../../index.html">return to dashboard</a> or try using the search form.-->
+<!--</p>-->
+<!--<form class="search-form">-->
+<!--<div class="input-group">-->
+<!--<input type="text" name="search" class="form-control" placeholder="Search">-->
+<!--<div class="input-group-btn">-->
+<!--<button type="submit" name="submit" class="btn btn-warning btn-flat"><i class="fa fa-search"></i></button>-->
+<!--</div>-->
+<!--</div>&lt;!&ndash; /.input-group &ndash;&gt;-->
+<!--</form>-->
+<!--</div>&lt;!&ndash; /.error-content &ndash;&gt;-->
+<!--</div>&lt;!&ndash; /.error-page &ndash;&gt;-->
+<!--</section>&lt;!&ndash; /.content &ndash;&gt;-->
+<!--</div>-->
+
+<!--&lt;!&ndash;&lt;!&ndash; This file lives in public/404.html &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<h1>404</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="dialog">&ndash;&gt;-->
+<!--&lt;!&ndash;<h2>The page you were looking for doesn't exist.</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>You may have mistyped the address or the page may have moved.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>If you are the application owner check the logs for more information.</p>&ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->

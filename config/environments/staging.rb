@@ -81,31 +81,4 @@ BaseWeb::Application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-
-  # -------------- Configuração de envio de Email ------------------------------------------
-  config.action_mailer.default_url_options = { :host => 'www.cepedi.org.br' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => 'utf-8'
-
-  config.action_mailer.smtp_settings = {
-      address: 'smtp.gmail.com',
-      port: 587,
-      domain: ENV['GMAIL_DOMAIN'],
-      authentication: 'plain',
-      enable_starttls_auto: true,
-      user_name: ENV['GMAIL_USERNAME'],
-      password: ENV['GMAIL_PASSWORD']
-  }
-
-  # -------------- Configuração de envio de Email ------------------------------------------
-  #Whatever::Application.config.middleware.use ExceptionNotification::Rack,
-  #config.middleware.use ExceptionNotification::Rack,
-  #                                            :email => {
-  #                                                :email_prefix => "[Exception] ",
-  #                                                :sender_address => %{"notifier" <sistemas@cepedi.org.br>},
-  #                                                :exception_recipients => %w{rogerio@cepedi.org.br}
-  #                                            }
-
 end
