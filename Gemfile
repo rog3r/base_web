@@ -21,6 +21,7 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 
 gem 'jquery-fileupload-rails'
 
+gem 'bcrypt-ruby', '3.1.1.rc1', require: 'bcrypt'
 gem 'devise' #autenticacao
 gem 'pundit'
 gem 'carrierwave' #File Upload
@@ -69,7 +70,7 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'sqlite3'                # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '1.3.11.pr159'                # Use sqlite3 as the database for Active Record
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 

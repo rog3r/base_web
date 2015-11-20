@@ -15,13 +15,13 @@ role_destroy   = Ability.create!( domain: 'role',  ability: 'destroy' )
 
 
 admin_role = Role.create!( name: 'administrator')
-admin_role << admin_admin
+admin_role.abilities << admin_admin
 
 user_role  = Role.create!( name: 'user')
-user_role << [user_index, user_show, user_create, user_update, user_destroy]
+user_role.abilities << [user_index, user_show, user_create, user_update, user_destroy]
 
 support_role  = Role.create!( name: 'supporte')
-support_role << [user_index, user_show, user_create, user_update, user_destroy, role_index, role_show, role_create, role_update, role_destroy]
+support_role.abilities << [user_index, user_show, user_create, user_update, user_destroy, role_index, role_show, role_create, role_update, role_destroy]
 
 guest_role = Role.create!( name: 'guest')
 # no Roles
