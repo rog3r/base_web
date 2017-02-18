@@ -65,20 +65,14 @@
 
 <div id="geral" class="container_12">
 
-  <div id="menu_topo" class="grid_12 alpha omega" style="width: 100%;">
     <%= render 'layouts/partials/navbar' %>
-  </div>
 
-  <div id="mensagens" class="grid_12">
     <%= render 'shared/bootstrap_dialog_modal' %>
     <%= render partial: 'shared/flash_messages', flash: flash %>
   </div>
 
-  <div id="conteudo" class="grid_12">
     <%= yield %>
   </div>
-
-</div>
 
 <footer id="footer">
   <%= render 'layouts/partials/footer' %>

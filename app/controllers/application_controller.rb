@@ -34,9 +34,14 @@ class ApplicationController < ActionController::Base
 
 
   protected
+  # def configure_permitted_parameters
+    # devise_parameter_sanitizer.for(:sign_up) << :name            #[ :name ,  role_ids: [] ]
+    # devise_parameter_sanitizer.for(:account_update) << :name     #[ :name ,  role_ids: [] ]
+  # end
+  
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :name            #[ :name ,  role_ids: [] ]
-    devise_parameter_sanitizer.for(:account_update) << :name     #[ :name ,  role_ids: [] ]
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
 

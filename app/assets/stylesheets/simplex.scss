@@ -16,8 +16,6 @@ $icon-font-path: "";
 @import 'sticky';
 @import 'error_messages';
 
-@import "grid";
-
 .navbar-nav li a:hover, a.navbar-brand {
   color: #fff !important;
   font-weight: bold;

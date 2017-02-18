@@ -20,78 +20,108 @@
   <!--<![endif]&ndash;&gt;-->
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= yield(:page_javascript) if content_for?(:page_javascript) %>
-
-  <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-
-  <script>
-      if ($.cookie("css")) {
-          $("link").attr("href", $.cookie("css"));
-      }
-      $(document).ready(function () {
-          $("#colorchanger li a").click(function () {
-              $("link").attr("href", $(this).attr('rel'));
-              $.cookie("css", $(this).attr('rel'), {expires: 365, path: '/'});
-              return false;
-          });
-
-          $('.field-moeda').focus(function() {
-              mascararQtd($(this));
-          });
-
-          $('.selectpicker').selectpicker();
-
-          tinymce.init({
-              selector: '.html-editor',
-              menubar: false,
-              toolbar: " undo redo | bold | italic | alignleft | aligncenter | alignright | alignjustify | underline | bullist | numlist | outdent | indent "
-              //statusbar: false
-          });
-
-          //$('.selectpicker').selectpicker({
-          // style: 'btn-info',
-          //   size: 8
-          // });
-          $.mask.definitions['~']='[+-]';
-          $.mask.definitions['A']='[A-Za-z0-9 ]';
-          $.mask.definitions['X']='[0-9 ]';
-
-          $('.cnpj').mask('99.999.999/9999-99');
-          $('.cep').mask('99.999-999');
-          $('.phone').mask('(99) X9999-9999');
-          $('.data').mask('99/99/9999');
-          //$('.phone').mask('~99(9) 999 999 9999');
-          //jQuery('.cpf').mask('999.999.999-99');
-          //$(".cel").mask("(99) ?9999 9999");
-      });
-  </script>
-
 
 </head>
 <body>
 
+<div style="width: 100%;">
+  <%= render 'layouts/partials/navbar' %>
+</div>
 
+<div class="col-md-12">
+  <%= render 'shared/bootstrap_dialog_modal' %>
+  <%= render partial: 'shared/flash_messages', flash: flash %>
+</div>
 
-<div id="geral" class="container_12">
-
-    <div id="menu_topo" class="grid_12 alpha omega" style="width: 100%;">
-      <%= render 'layouts/partials/navbar', cache: true %>
-    </div>
-
-    <div id="mensagens" class="grid_12">
-        <%= render 'shared/bootstrap_dialog_modal' , cache: true %>
-        <%= render partial: 'shared/flash_messages', flash: flash, cache: true %>
-    </div>
-
-    <div id="conteudo" class="grid_12">
-      <%= yield %>
-    </div>
-
+<div id="conteudo" class="col-md-12">
+  <%= yield %>
 </div>
 
 <footer id="footer">
-  <%= render 'layouts/partials/footer', cache: true %>
+  <%= render 'layouts/partials/footer' %>
 </footer>
+
+<script>
+    if ($.cookie("css")) {
+        $("link").attr("href", $.cookie("css"));
+    }
+    $(document).ready(function () {
+        $("#colorchanger li a").click(function () {
+            $("link").attr("href", $(this).attr('rel'));
+            $.cookie("css", $(this).attr('rel'), {expires: 365, path: '/'});
+            return false;
+        });
+
+//        $('.field-moeda').focus(function () {
+//            mascararQtd($(this));
+//        });
+
+//========================= mascara de moeda ===============================================
+
+        var originalVal = $.fn.val;
+
+        $.fn.val = function (value) {
+            if (typeof value == 'undefined') {
+                return originalVal.call(this);
+            } else {
+                setTimeout(function () {
+                    this.trigger('mask.maskMoney');
+                }.bind(this), 100);
+                return originalVal.call(this, value);
+            }
+        };
+
+        $('.field-money').each(function () {
+            $(this).attr('maxlength', '22').maskMoney({ decimal: ",", thousands: "."});
+        });
+
+        $('.field-moeda').each(function () {
+//            if ($(this).val()) {
+//                var rounded_value = parseFloat($(this).val()).toFixed(2);//converte o valor do campo e arredonda as casas decimais(2)
+//                $(this).val(rounded_value);
+//            }
+            $(this).attr('maxlength', '22').maskMoney({ decimal: ",", thousands: "."});
+        });
+
+
+        $("form").submit(function () {
+            $('.field-moeda').each(function () {
+                if ($('.field-moeda').val()) {
+                    $('.field-moeda').maskMoney({thousands: '', decimal: '.'});
+                    $('.field-moeda').maskMoney('mask');
+                }
+            });
+            $('.field-money').each(function () {
+                if ($('.field-money').val()) {
+                    $('.field-money').maskMoney({thousands: '', decimal: '.'});
+                    $('.field-money').maskMoney('mask');
+                }
+            });
+
+        });
+//=========================================================================================
+
+        $('.selectpicker').selectpicker();
+
+//============== Bootstrap popover enable ====================
+        $('[data-toggle="popover"]').popover();
+
+
+        $.mask.definitions['~'] = '[+-]';
+        $.mask.definitions['A'] = '[A-Za-z0-9 ]';
+        $.mask.definitions['X'] = '[0-9 ]';
+
+        $('.cnpj').mask('99.999.999/9999-99');
+        //$('.cpf').mask('999.999.999-99');
+        $('.cep').mask('99.999-999');
+        $('.phone').mask('(99) 9?99999999');
+        $('.data').mask('99/99/9999'); // TODO - Internacionalizar a mascara
+
+
+    });
+</script>
+
+<%= yield(:script) if content_for?(:script) %>
 
 </body>
 </html>

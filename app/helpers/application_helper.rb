@@ -1,7 +1,7 @@
 # encoding: utf-8
 module ApplicationHelper
 
-  def humannize_boolean(boolean)
+  def humanize_boolean(boolean)
     boolean ? I18n.t('yes_label') : I18n.t('no_label')
   end
 
@@ -24,7 +24,7 @@ module ApplicationHelper
 
   def enums_to_translated_options_collection(object, enum)
     #klass.__send__(enum.to_s.pluralize).collect { |s| [t("#{s[0]}"), s[0]] }
-    object.class.__send__(enum.to_s.pluralize).collect do  |s|
+    object.class.__send__(enum.to_s.pluralize).collect do |s|
       [t("#{s[0]}"), s[0]]
     end
   end
@@ -39,6 +39,20 @@ module ApplicationHelper
 
   def enum_select(f, enum, options = {}) # TODO - !!! .... terminar implementacao(verificar merge class :parmas[:class])
     f.select enum, options_for_enum(f.object.class, enum, f.object), options, class: 'form-control'
+  end
+
+  def enum_radio_button(f, enum, html_options = {}) # TODO - !!! .... terminar implementacao(verificar merge class :parmas[:class])
+    f.select enum, options_for_enum(f.object.class, enum, f.object), options, class: 'form-control'
+    label = html_options[:label].blank? ? field : html_options[:label]
+
+    html = content_tag :div, class: 'radio' do
+      content_tag :label do
+        f.radio_button(field, tag_value, html_options) +
+            content_tag(:span) {} + f.label(label)
+      end
+    end
+
+    html.html_safe
   end
 
   def image_check_box_tag(checked)
@@ -93,13 +107,13 @@ module ApplicationHelper
       # or
       #  b.label(class: "my-#{ b.object.class.name.parameterize }", 'data-value'=> b.value) { b.check_box + b.text }
 
-       html = content_tag :div, class: 'form-group checkbox' do
-         content_tag :label do
-           b.check_box(html_options) +
-               content_tag(:span, class: 'glyphicon glyphicon-ok', style: 'top: 0px !important; position: absolute; margin-left: -19px;  padding-right: 0px;') {} + b.label('data-value'=> b.value, style: 'padding-left: 10px;')
-         end
-       end
-       html.html_safe
+      html = content_tag :div, class: 'form-group checkbox' do
+        content_tag :label do
+          b.check_box(html_options) +
+              content_tag(:span, class: 'glyphicon glyphicon-ok', style: 'top: 0px !important; position: absolute; margin-left: -19px;  padding-right: 0px;') {} + b.label('data-value' => b.value, style: 'padding-left: 10px;')
+        end
+      end
+      html.html_safe
 
 
     end
@@ -132,6 +146,36 @@ module ApplicationHelper
     end
 
     html.html_safe
+  end
+
+  def collection_radio_button_for(f, collection, field, html_options={})
+    html = content_tag :div, class: 'radio' do
+      collection.each do |key, value|
+          concat (content_tag :label, style:'padding-right: 20px;' do
+            f.radio_button(field, key, html_options: html_options) +
+                content_tag(:span) {} + f.label(key)
+          end)
+      end
+    end
+    html.html_safe
+
+  #
+  #   <div class="radio">
+  #
+  #   <label>
+  #   <input label="Masculino" class="radio-inline" type="radio" value="masculino" name="paciente[sexo]" id="paciente_sexo_masculino">
+  #   <span></span>
+  #     <label for="paciente_Masculino">Masculino</label>
+  #   </label>
+  #
+  #   <label>
+  #       <input label="Feminino" class="radio-inline" type="radio" value="feminino" name="paciente[sexo]" id="paciente_sexo_feminino">
+  #      <span></span>
+  #     <label for="paciente_Feminino">Feminino</label>
+  #   </label>
+  #
+  #   </div>
+
   end
 
 
@@ -177,6 +221,38 @@ module ApplicationHelper
     end
 
     html.html_safe
+  end
+
+  # TODO - Corrigir funcionamento no IE, não marca nem desmarca o check!
+  def check_box_for(f, field, html_options={})
+    label = html_options[:label].blank? ? field : html_options[:label]
+
+    html = content_tag :div, class: 'form-group checkbox' do
+      content_tag :label do
+        f.check_box(field) +
+            content_tag(:span, class: 'glyphicon glyphicon-ok', style: 'top: 0px !important; position: absolute; margin-left: -19px;  padding-right: 0px;') {} + f.label(label, style: 'padding-left: 10px;')
+      end
+    end
+    html.html_safe
+  end
+
+  def collection_check_boxes_for(f, collection_ids, collection, id, label, html_options={})
+
+    f.collection_check_boxes collection_ids, collection, id, label do |b|
+      #b.label { b.check_box }
+      # or
+      #  b.label(class: "my-#{ b.object.class.name.parameterize }", 'data-value'=> b.value) { b.check_box + b.text }
+
+      html = content_tag :div, class: 'form-group checkbox' do
+        content_tag :label do
+          b.check_box(html_options) +
+              content_tag(:span, class: 'glyphicon glyphicon-ok', style: 'top: 0px !important; position: absolute; margin-left: -19px;  padding-right: 0px;') {} + b.label('data-value' => b.value, style: 'padding-left: 10px;')
+        end
+      end
+
+      html.html_safe
+
+    end
   end
 
 end

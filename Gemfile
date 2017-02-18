@@ -6,7 +6,7 @@ gem 'uglifier', '>= 1.3.0'     # Use Uglifier as compressor for JavaScript asset
 gem 'coffee-rails', '~> 4.1.0' # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-script-source', '1.8.0', platforms: [:x64_mingw,:mingw, :mswin]
 
-gem 'nokogiri'
+#gem 'nokogiri'
 
 gem 'jquery-rails'             # Use jquery as the JavaScript library
 gem 'turbolinks'               # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -43,6 +43,7 @@ gem 'will_paginate' # Pagination
 gem 'bootstrap-will_paginate' # Pagination Styles
 
 gem 'nested_form'
+gem 'nested_form_fields'
 gem 'tzinfo-data', platforms: [:x64_mingw, :mingw, :mswin]# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'seed_dump'
 gem 'schema_plus' , github: 'SchemaPlus/schema_plus', branch: 'master', submodules: true if RUBY_VERSION > '2.0.0'
@@ -70,7 +71,7 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'sqlite3', '1.3.11.pr159'                # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'# '1.3.11.pr159'                # Use sqlite3 as the database for Active Record
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 
@@ -92,3 +93,5 @@ group :test do
   gem 'capybara-screenshot'    # screenshot failed tests
   gem 'selenium-webdriver'
 end
+
+gem 'oink'

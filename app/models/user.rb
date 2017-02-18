@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
   ## Pundit -----------------------------------------------------------
 
-  def admin? #TODO - rever comparação case insensitive
+  def admin? #TODO - rever comparacao case insensitive
     roles.pluck(:name).include? 'administrator'  #roles.map(&:name).include? 'Administrator' #roles.where(name: 'administrator').exists?
   end
 
@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   end
 
   def skip_confirmation!
-    self.confirm! #if Rails.env.development? 
+    self.confirm #if Rails.env.development? 
     save! 
   end
 
